@@ -3,37 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Signal &amp; Reason | Production-Grade AI Systems</title>
-  <meta name="description" content="Signal &amp; Reason designs, builds, and deploys LLM workflows, RAG pipelines, and multi-agent systems. Production-ready AI engineered for reliability, security, and scale." />
+  <title>Signal &amp; Reason | Operational Automation for Local Businesses</title>
+  <meta name="description" content="Automation and operational fixes for real businesses. Clear, fast results without the technical overhead." />
   <meta name="author" content="Signal &amp; Reason" />
-
-  <meta property="og:title" content="Signal &amp; Reason | Production-Grade AI Systems" />
-  <meta property="og:description" content="We design, build, and deploy production-ready AI workflows with measurable outcomes." />
-  <meta property="og:type" content="website" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --background: 222 47% 6%;
-      --foreground: 210 20% 95%;
-      --card: 222 44% 8%;
-      --card-foreground: 210 20% 95%;
-      --primary: 174 72% 50%;
-      --primary-foreground: 222 47% 6%;
-      --secondary: 222 30% 14%;
-      --secondary-foreground: 210 20% 85%;
-      --muted: 222 30% 12%;
-      --muted-foreground: 215 16% 55%;
-      --border: 222 30% 18%;
-      --radius: 16px;
-      --gradient-text: linear-gradient(90deg, hsl(174 72% 56%) 0%, hsl(190 80% 60%) 100%);
-      --gradient-glow: radial-gradient(ellipse at center, hsl(174 72% 50% / 0.2) 0%, transparent 70%);
-      --shadow-glow: 0 0 40px hsl(174 72% 50% / 0.2);
+      color-scheme: light;
     }
 
     * {
@@ -42,1239 +18,194 @@
 
     body {
       margin: 0;
-      font-family: "Manrope", sans-serif;
-      background: hsl(var(--background));
-      color: hsl(var(--foreground));
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      color: #111;
+      background: #fff;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      font-feature-settings: "cv11", "ss01";
-    }
-
-    h1, h2, h3, h4, h5 {
-      font-family: "Space Grotesk", "Manrope", sans-serif;
-      letter-spacing: -0.02em;
-      margin: 0 0 0.5em;
-    }
-
-    p {
-      margin: 0 0 1em;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .sprite {
-      position: absolute;
-      width: 0;
-      height: 0;
-      overflow: hidden;
-    }
-
-    .container {
-      width: min(1200px, 100%);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-      background: hsl(var(--background) / 0.85);
-      border-bottom: 1px solid hsl(var(--border) / 0.7);
-      backdrop-filter: blur(16px);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      gap: 16px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 600;
-      font-size: 1.05rem;
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: hsl(var(--primary));
-      color: hsl(var(--primary-foreground));
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-links a {
-      font-size: 0.95rem;
-      color: hsl(var(--muted-foreground));
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: hsl(var(--foreground));
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 10px 18px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: hsl(var(--primary));
-      color: hsl(var(--primary-foreground));
-      box-shadow: 0 10px 25px hsl(var(--primary) / 0.15);
-    }
-
-    .btn-primary:hover {
-      box-shadow: 0 12px 35px hsl(var(--primary) / 0.25);
-    }
-
-    .btn-outline {
-      border: 2px solid hsl(var(--muted-foreground) / 0.3);
-      color: hsl(var(--foreground));
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      border-color: hsl(var(--primary));
-      color: hsl(var(--primary));
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: hsl(var(--muted-foreground));
-    }
-
-    .btn-ghost:hover {
-      color: hsl(var(--foreground));
-      background: hsl(var(--secondary) / 0.6);
-    }
-
-    .btn-xl {
-      padding: 14px 28px;
-      border-radius: 14px;
-      font-size: 1rem;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      padding: 8px;
-      color: hsl(var(--foreground));
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: currentColor;
-      margin: 5px 0;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    body.menu-open .menu-toggle span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    body.menu-open .menu-toggle span:nth-child(2) {
-      opacity: 0;
-    }
-
-    body.menu-open .menu-toggle span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    .mobile-menu {
-      border-top: 1px solid hsl(var(--border));
-      background: hsl(var(--background) / 0.98);
-    }
-
-    .mobile-menu nav {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 20px 24px 28px;
-    }
-
-    .mobile-menu .btn {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .mobile-menu a {
-      color: hsl(var(--muted-foreground));
     }
 
     main {
-      padding-top: 64px;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 120px 0 80px;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--gradient-glow);
-      opacity: 0.7;
-      animation: pulse-glow 3s ease-in-out infinite;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 15%;
-      left: 50%;
-      width: 800px;
-      height: 600px;
-      transform: translateX(-50%);
-      background: hsl(var(--primary) / 0.08);
-      border-radius: 999px;
-      filter: blur(120px);
-    }
-
-    .hero-content {
-      position: relative;
-      text-align: center;
-      z-index: 1;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: hsl(var(--secondary) / 0.5);
-      border: 1px solid hsl(var(--border));
-      color: hsl(var(--muted-foreground));
-      font-size: 0.9rem;
-      margin-bottom: 28px;
-    }
-
-    .text-gradient {
-      background-image: var(--gradient-text);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      line-height: 1.1;
-    }
-
-    .hero p {
-      font-size: clamp(1rem, 2.4vw, 1.25rem);
-      color: hsl(var(--muted-foreground));
-      max-width: 680px;
-      margin: 0 auto 32px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-
-    .hero-trust {
-      border-top: 1px solid hsl(var(--border) / 0.5);
-      padding-top: 24px;
-    }
-
-    .hero-trust p {
-      font-size: 0.85rem;
-      margin-bottom: 16px;
-    }
-
-    .trust-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      font-size: 0.95rem;
-      color: hsl(var(--muted-foreground));
-    }
-
-    .section {
-      padding: 96px 0;
-    }
-
-    .section-muted {
-      background: hsl(var(--muted) / 0.3);
-    }
-
-    .section-bordered {
-      border-top: 1px solid hsl(var(--border) / 0.6);
-      border-bottom: 1px solid hsl(var(--border) / 0.6);
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-    }
-
-    .section-heading p {
-      color: hsl(var(--muted-foreground));
-      max-width: 640px;
+      max-width: 920px;
       margin: 0 auto;
+      padding: 48px 20px 72px;
     }
 
-    .grid {
-      display: grid;
-      gap: 24px;
+    header {
+      padding-bottom: 24px;
+      border-bottom: 1px solid #e6e6e6;
+      margin-bottom: 32px;
     }
 
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
     }
 
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    h2 {
+      font-size: 1.4rem;
+      margin: 0 0 12px;
     }
 
-    .grid-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    h3 {
+      font-size: 1.1rem;
+      margin: 0 0 8px;
     }
 
-    .grid-5 {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+    p {
+      margin: 0 0 16px;
     }
 
-    .card {
-      background: hsl(var(--card));
-      border: 1px solid hsl(var(--border));
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: border 0.3s ease, background 0.3s ease, transform 0.3s ease;
+    section {
+      padding: 24px 0;
+      border-bottom: 1px solid #f0f0f0;
     }
 
-    .card:hover {
-      border-color: hsl(var(--primary) / 0.4);
-      transform: translateY(-2px);
+    ul,
+    ol {
+      margin: 0 0 16px;
+      padding-left: 20px;
     }
 
-    .card p {
-      color: hsl(var(--muted-foreground));
-    }
-
-    .icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: hsl(var(--primary) / 0.12);
-      color: hsl(var(--primary));
-      margin-bottom: 20px;
-    }
-
-    .icon {
-      width: 22px;
-      height: 22px;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .stat-value {
-      font-size: 2.2rem;
-      font-weight: 700;
+    li {
       margin-bottom: 8px;
     }
 
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .subheadline {
+      font-size: 1.1rem;
+      margin: 0 0 20px;
+    }
+
+    .industries {
       display: grid;
-      gap: 12px;
-    }
-
-    .list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: hsl(var(--secondary-foreground));
-    }
-
-    .list .icon-wrap {
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      margin: 2px 0 0;
-      background: hsl(var(--primary) / 0.15);
-    }
-
-    .list .icon {
-      width: 12px;
-      height: 12px;
-    }
-
-    .pill {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: hsl(var(--primary));
-      margin-bottom: 12px;
-    }
-
-    .card-footer {
-      margin-top: auto;
-      padding-top: 20px;
-      border-top: 1px solid hsl(var(--border));
-      display: grid;
-      gap: 8px;
-      font-size: 0.9rem;
-      color: hsl(var(--secondary-foreground));
-    }
-
-    .card-vertical {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .process-line {
-      position: absolute;
-      top: 94px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, hsl(var(--border)), transparent);
+      gap: 16px;
     }
 
     .cta {
-      position: relative;
-      overflow: hidden;
+      padding-top: 28px;
+      border-bottom: none;
     }
 
-    .cta::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--gradient-glow);
-      opacity: 0.45;
+    .cta a {
+      display: inline-block;
+      padding: 12px 18px;
+      border: 1px solid #111;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    .cta::after {
-      content: "";
-      position: absolute;
-      bottom: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1000px;
-      height: 400px;
-      background: hsl(var(--primary) / 0.08);
-      border-radius: 999px;
-      filter: blur(140px);
+    .cta a:focus,
+    .cta a:hover {
+      background: #000;
+      border-color: #000;
     }
 
-    .cta-content {
-      position: relative;
-      text-align: center;
-      z-index: 1;
-    }
-
-    .process-step {
-      text-align: center;
-    }
-
-    .process-step .icon-wrap {
-      margin: 0 auto 16px;
-    }
-
-    footer {
-      border-top: 1px solid hsl(var(--border));
-      padding: 40px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      font-size: 0.9rem;
-      color: hsl(var(--muted-foreground));
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .fade-in {
-      opacity: 0;
-      animation: fade-in 0.6s ease-out forwards;
-    }
-
-    @keyframes fade-in {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% {
-        opacity: 0.4;
-      }
-      50% {
-        opacity: 0.85;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .grid-4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .grid-5 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .process-line {
-        display: none;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .nav-links,
-      .header-actions {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .grid-2,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .grid-4,
-      .grid-5 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 96px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-links {
-        flex-direction: column;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .fade-in {
-        animation: none;
-        opacity: 1;
-      }
-
-      .hero::before {
-        animation: none;
-      }
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: hsl(var(--background));
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: hsl(var(--muted));
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: hsl(var(--muted-foreground));
+    .note {
+      font-size: 0.95rem;
+      color: #333;
     }
   </style>
 </head>
 <body>
-  <svg class="sprite" aria-hidden="true">
-    <symbol id="icon-zap" viewBox="0 0 24 24">
-      <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"></path>
-    </symbol>
-    <symbol id="icon-arrow-right" viewBox="0 0 24 24">
-      <path d="M5 12h14"></path>
-      <path d="M13 5l7 7-7 7"></path>
-    </symbol>
-    <symbol id="icon-trending-down" viewBox="0 0 24 24">
-      <path d="M3 7l6 6 4-4 8 8"></path>
-      <path d="M21 17v4h-4"></path>
-    </symbol>
-    <symbol id="icon-robot" viewBox="0 0 24 24">
-      <rect x="4" y="6" width="16" height="12" rx="2"></rect>
-      <circle cx="9" cy="12" r="1.5"></circle>
-      <circle cx="15" cy="12" r="1.5"></circle>
-      <path d="M12 6V3"></path>
-      <path d="M9 16h6"></path>
-    </symbol>
-    <symbol id="icon-rocket" viewBox="0 0 24 24">
-      <path d="M4.5 16.5L3 21l4.5-1.5L19 8.5a2.1 2.1 0 0 0 0-3L18.5 5a2.1 2.1 0 0 0-3 0L4.5 16.5z"></path>
-      <path d="M15 6l3 3"></path>
-      <path d="M9 15l3 3"></path>
-    </symbol>
-    <symbol id="icon-building" viewBox="0 0 24 24">
-      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-      <rect x="7" y="7" width="3" height="3"></rect>
-      <rect x="14" y="7" width="3" height="3"></rect>
-      <rect x="7" y="12" width="3" height="3"></rect>
-      <rect x="14" y="12" width="3" height="3"></rect>
-    </symbol>
-    <symbol id="icon-message" viewBox="0 0 24 24">
-      <path d="M4 5h16v10H7l-3 4V5z"></path>
-    </symbol>
-    <symbol id="icon-file-search" viewBox="0 0 24 24">
-      <path d="M6 3h8l4 4v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
-      <circle cx="11" cy="13" r="3"></circle>
-      <path d="M16 18l2.5 2.5"></path>
-    </symbol>
-    <symbol id="icon-workflow" viewBox="0 0 24 24">
-      <circle cx="6" cy="6" r="2"></circle>
-      <circle cx="18" cy="6" r="2"></circle>
-      <circle cx="12" cy="18" r="2"></circle>
-      <path d="M8 6h8"></path>
-      <path d="M12 8v6"></path>
-      <path d="M10 14l-2 2"></path>
-      <path d="M14 14l2 2"></path>
-    </symbol>
-    <symbol id="icon-shield-check" viewBox="0 0 24 24">
-      <path d="M12 2l7 4v6c0 5-3.5 9.5-7 11-3.5-1.5-7-6-7-11V6l7-4z"></path>
-      <path d="M9 12l2 2 4-4"></path>
-    </symbol>
-    <symbol id="icon-search" viewBox="0 0 24 24">
-      <circle cx="11" cy="11" r="7"></circle>
-      <path d="M20 20l-3.5-3.5"></path>
-    </symbol>
-    <symbol id="icon-database" viewBox="0 0 24 24">
-      <ellipse cx="12" cy="5" rx="7" ry="3"></ellipse>
-      <path d="M5 5v10c0 1.7 3.1 3 7 3s7-1.3 7-3V5"></path>
-      <path d="M5 10c0 1.7 3.1 3 7 3s7-1.3 7-3"></path>
-      <path d="M5 15c0 1.7 3.1 3 7 3s7-1.3 7-3"></path>
-    </symbol>
-    <symbol id="icon-users" viewBox="0 0 24 24">
-      <circle cx="8" cy="8" r="3"></circle>
-      <circle cx="16" cy="8" r="3"></circle>
-      <path d="M4 20c0-2.2 2.7-4 6-4"></path>
-      <path d="M20 20c0-2.2-2.7-4-6-4"></path>
-    </symbol>
-    <symbol id="icon-chart" viewBox="0 0 24 24">
-      <path d="M4 19h16"></path>
-      <rect x="6" y="11" width="3" height="6"></rect>
-      <rect x="11" y="8" width="3" height="9"></rect>
-      <rect x="16" y="5" width="3" height="12"></rect>
-    </symbol>
-    <symbol id="icon-plug" viewBox="0 0 24 24">
-      <path d="M9 7v5"></path>
-      <path d="M15 7v5"></path>
-      <path d="M7 12h10"></path>
-      <path d="M12 12v7"></path>
-      <path d="M8 19h8"></path>
-    </symbol>
-    <symbol id="icon-layers" viewBox="0 0 24 24">
-      <path d="M12 3l9 5-9 5-9-5 9-5z"></path>
-      <path d="M3 12l9 5 9-5"></path>
-      <path d="M3 17l9 5 9-5"></path>
-    </symbol>
-    <symbol id="icon-code" viewBox="0 0 24 24">
-      <path d="M8 9l-4 3 4 3"></path>
-      <path d="M16 9l4 3-4 3"></path>
-      <path d="M12 7l-2 10"></path>
-    </symbol>
-    <symbol id="icon-settings" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="3"></circle>
-      <path d="M12 2v3"></path>
-      <path d="M12 19v3"></path>
-      <path d="M2 12h3"></path>
-      <path d="M19 12h3"></path>
-      <path d="M4.5 4.5l2 2"></path>
-      <path d="M17.5 17.5l2 2"></path>
-      <path d="M4.5 19.5l2-2"></path>
-      <path d="M17.5 6.5l2-2"></path>
-    </symbol>
-    <symbol id="icon-check" viewBox="0 0 24 24">
-      <path d="M5 13l4 4 10-10"></path>
-    </symbol>
-  </svg>
-
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top">
-        <span class="brand-mark">SR</span>
-        <span>Signal &amp; Reason</span>
-      </a>
-
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#process">Process</a>
-        <a href="#case-studies">Case Studies</a>
-      </nav>
-
-      <div class="header-actions">
-        <a class="btn btn-ghost" href="#contact">Contact</a>
-        <a class="btn btn-primary" href="#contact">Schedule Consultation</a>
-      </div>
-
-      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-
-    <div class="mobile-menu" id="mobile-menu" hidden>
-      <nav aria-label="Mobile">
-        <a href="#services">Services</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#process">Process</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#contact">Contact</a>
-        <a class="btn btn-primary" href="#contact">Schedule Consultation</a>
-      </nav>
-    </div>
-  </header>
-
+  <!-- CTA_URL: mailto:hello@signalreason.com -->
   <main>
-    <section class="hero" id="top">
-      <div class="container hero-content">
-        <div class="badge fade-in" style="animation-delay: 0.1s;">
-          <svg class="icon" aria-hidden="true">
-            <use href="#icon-zap"></use>
-          </svg>
-          Production-grade AI systems
+    <header>
+      <h1>Signal &amp; Reason</h1>
+      <p class="subheadline">Automation and operational fixes for real businesses.</p>
+      <p>
+        I automate repetitive workflows, connect disconnected systems, and reduce operational drag.
+        You get rapid delivery and measurable results without needing to understand the technical details.
+      </p>
+    </header>
+
+    <section>
+      <h2>What I Automate</h2>
+      <ul>
+        <li>Scheduling, booking, and reminders</li>
+        <li>Customer support triage and response</li>
+        <li>CRM cleanup and lead follow-up</li>
+        <li>Data entry, reporting, and reconciliation</li>
+        <li>Internal handoffs and task routing</li>
+        <li>Forms, intakes, and approvals</li>
+        <li>Invoicing and payment follow-ups</li>
+        <li>Inventory updates and vendor coordination</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Industries Served</h2>
+      <div class="industries">
+        <div>
+          <h3>Restaurants</h3>
+          <ul>
+            <li>Reduce double-booking and no-shows</li>
+            <li>Keep order updates consistent across channels</li>
+            <li>Keep staff schedules aligned with demand</li>
+          </ul>
         </div>
-
-        <h1 class="fade-in" style="animation-delay: 0.15s;">
-          Build AI that <span class="text-gradient">actually works</span><br />
-          in production
-        </h1>
-
-        <p class="fade-in" style="animation-delay: 0.2s;">
-          Signal &amp; Reason designs, builds, and deploys LLM workflows, RAG pipelines, and multi-agent systems.
-          From prototype to production - engineered for reliability, security, and scale.
-        </p>
-
-        <div class="hero-actions fade-in" style="animation-delay: 0.25s;">
-          <a class="btn btn-primary btn-xl" href="#contact">
-            Schedule a Consultation
-            <svg class="icon" aria-hidden="true">
-              <use href="#icon-arrow-right"></use>
-            </svg>
-          </a>
-          <a class="btn btn-outline btn-xl" href="#contact">Get a Technical Assessment</a>
+        <div>
+          <h3>Med Spas and Clinics</h3>
+          <ul>
+            <li>Automate intake, consent, and reminders</li>
+            <li>Reduce front desk phone load</li>
+            <li>Eliminate follow-up gaps after visits</li>
+          </ul>
         </div>
-
-        <div class="hero-trust fade-in" style="animation-delay: 0.3s;">
-          <p>Trusted by product and engineering teams in</p>
-          <div class="trust-logos">
-            <span>FinTech</span>
-            <span>Logistics</span>
-            <span>SaaS</span>
-            <span>Healthcare</span>
-            <span>Energy</span>
-          </div>
+        <div>
+          <h3>Real Estate</h3>
+          <ul>
+            <li>Eliminate lead follow-up gaps</li>
+            <li>Coordinate showings without back-and-forth</li>
+            <li>Keep listings, CRM, and emails in sync</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contractors and Trades</h3>
+          <ul>
+            <li>Stop missed bids and stale estimates</li>
+            <li>Automate estimate and invoice follow-ups</li>
+            <li>Keep job updates flowing to customers</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Small Agencies and Consultancies</h3>
+          <ul>
+            <li>Reduce status update churn</li>
+            <li>Automate onboarding and kickoff steps</li>
+            <li>Keep approvals moving without delays</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section section-bordered" id="credibility">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Measurable outcomes, not promises</h2>
-          <p>We help teams reduce cost, increase throughput, and automate workflows with production-ready AI systems.</p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-trending-down"></use>
-              </svg>
-            </div>
-            <div class="stat-value text-gradient">35-55%</div>
-            <h3>Reduction in operational costs</h3>
-            <p>Automated workflows and intelligent routing cut manual overhead.</p>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-zap"></use>
-              </svg>
-            </div>
-            <div class="stat-value text-gradient">3-4x</div>
-            <h3>Faster response times</h3>
-            <p>RAG-powered retrieval delivers answers in seconds, not hours.</p>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-robot"></use>
-              </svg>
-            </div>
-            <div class="stat-value text-gradient">70%+</div>
-            <h3>Workflow automation rate</h3>
-            <p>Routine requests handled by agents with clear escalation paths.</p>
-          </article>
-        </div>
-      </div>
+    <section>
+      <h2>How It Works</h2>
+      <ol>
+        <li>Identify the bottleneck.</li>
+        <li>Propose the simplest automation with measurable ROI.</li>
+        <li>Build and deploy the automation.</li>
+        <li>Monitor and refine based on results.</li>
+      </ol>
     </section>
 
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Solutions for every stage</h2>
-          <p>Whether you are exploring AI or scaling existing systems, we provide the engineering expertise you need.</p>
-        </div>
-
-        <div class="grid grid-2">
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-rocket"></use>
-              </svg>
-            </div>
-            <h3>Startups and Growth Teams</h3>
-            <p>Move fast with AI automation that scales with your product and operations.</p>
-            <ul class="list">
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                LLM workflow automation for support, sales, and ops
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                Agent orchestration with reliable tool use
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                API integration with your existing stack
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                Prototype-to-production delivery in weeks
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                Cost-optimized model selection
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                Rapid iteration with clear milestones
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true">
-                <use href="#icon-building"></use>
-              </svg>
-            </div>
-            <h3>Enterprise and Scale Teams</h3>
-            <p>Production-grade AI infrastructure built for compliance, governance, and scale.</p>
-            <ul class="list">
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                RAG pipelines with hybrid search and reranking
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                Vector store architecture and optimization
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                Multi-agent systems with guardrails
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                Compliance-ready data handling
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                Observability, evaluation, and monitoring
-              </li>
-              <li>
-                <span class="icon-wrap">
-                  <svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg>
-                </span>
-                Governance, access control, and audit trails
-              </li>
-            </ul>
-          </article>
-        </div>
-      </div>
+    <section>
+      <h2>Why Choose Signal &amp; Reason</h2>
+      <ul>
+        <li>Extensive engineering background</li>
+        <li>Deep systems integration history</li>
+        <li>Fast prototyping and fast delivery</li>
+        <li>Direct technical execution, not outsourced</li>
+        <li>Simple, predictable engagement process</li>
+      </ul>
     </section>
 
-    <section class="section section-muted" id="use-cases">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Real-world applications</h2>
-          <p>Concrete implementations with measurable outcomes, not vague promises.</p>
-        </div>
-
-        <div class="grid grid-4">
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-message"></use></svg>
-            </div>
-            <h3>Customer Support Automation</h3>
-            <p>Deploy AI agents that resolve routine tickets and route complex issues to specialists.</p>
-            <div class="pill">4x faster resolution</div>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-file-search"></use></svg>
-            </div>
-            <h3>Document Intelligence</h3>
-            <p>RAG systems that search contracts, manuals, and knowledge bases with citations.</p>
-            <div class="pill">90% retrieval accuracy</div>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-workflow"></use></svg>
-            </div>
-            <h3>Workflow Orchestration</h3>
-            <p>Multi-agent systems that move work from intake to completion with clear handoffs.</p>
-            <div class="pill">60% cycle time reduction</div>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-shield-check"></use></svg>
-            </div>
-            <h3>Compliance and Governance</h3>
-            <p>Guardrails, audit trails, and access controls that satisfy enterprise risk teams.</p>
-            <div class="pill">SOC 2 aligned</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="capabilities">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Technical capabilities</h2>
-          <p>Deep expertise across the AI stack, from model selection to production deployment.</p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-zap"></use></svg>
-            </div>
-            <h3>Model Strategy</h3>
-            <p>Domain-tuned LLM selection and fine-tuning plans that optimize cost, speed, and accuracy.</p>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-database"></use></svg>
-            </div>
-            <h3>Secure Embeddings</h3>
-            <p>Private embedding pipelines with encryption, data residency, and customer-owned infrastructure.</p>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-search"></use></svg>
-            </div>
-            <h3>Hybrid RAG Search</h3>
-            <p>Semantic and keyword retrieval with reranking, metadata filtering, and evaluation hooks.</p>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-workflow"></use></svg>
-            </div>
-            <h3>Multi-Agent Systems</h3>
-            <p>Orchestrated agents with tool use, memory management, and fallback workflows.</p>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-chart"></use></svg>
-            </div>
-            <h3>Evaluation Frameworks</h3>
-            <p>Automated testing for accuracy, latency, cost, and safety with regression tracking.</p>
-          </article>
-          <article class="card">
-            <div class="icon-wrap">
-              <svg class="icon" aria-hidden="true"><use href="#icon-plug"></use></svg>
-            </div>
-            <h3>System Integration</h3>
-            <p>Seamless connections with APIs, databases, and SaaS tools like Salesforce and Slack.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="case-studies">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Representative engagements</h2>
-          <p>Illustrative examples based on common client needs. These are not claims about past work.</p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card card-vertical">
-            <div class="pill">Representative | Financial Services</div>
-            <h3>Automated document processing pipeline</h3>
-            <p>Illustrative multi-modal system to extract, validate, and route financial documents with higher accuracy.</p>
-            <div class="card-footer">
-              <span>Target: 60% reduction in processing time</span>
-              <span>Target: 95% extraction accuracy</span>
-              <span>Target: 2M annual savings</span>
-            </div>
-          </article>
-          <article class="card card-vertical">
-            <div class="pill">Representative | Commerce</div>
-            <h3>AI-powered customer support</h3>
-            <p>Illustrative conversational agents for product inquiries, returns, and order tracking across channels.</p>
-            <div class="card-footer">
-              <span>Target: 80% ticket deflection</span>
-              <span>Target: 24/7 availability</span>
-              <span>Target: 4.6 CSAT score</span>
-            </div>
-          </article>
-          <article class="card card-vertical">
-            <div class="pill">Representative | Healthcare</div>
-            <h3>Clinical knowledge retrieval</h3>
-            <p>Illustrative HIPAA-ready RAG system for searching medical literature and internal protocols.</p>
-            <div class="card-footer">
-              <span>Target: sub-second retrieval</span>
-              <span>Target: citation tracking</span>
-              <span>Target: audit-ready logs</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="process">
-      <div class="container">
-        <div class="section-heading">
-          <h2>How we work</h2>
-          <p>A proven process that takes you from idea to production with minimal friction.</p>
-        </div>
-
-        <div style="position: relative;">
-          <div class="process-line"></div>
-          <div class="grid grid-5">
-            <article class="process-step">
-              <div class="icon-wrap">
-                <svg class="icon" aria-hidden="true"><use href="#icon-search"></use></svg>
-              </div>
-              <div class="pill">01</div>
-              <h3>Discovery</h3>
-              <p>Understand workflows, data, and goals. Identify high-impact opportunities.</p>
-            </article>
-            <article class="process-step">
-              <div class="icon-wrap">
-                <svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg>
-              </div>
-              <div class="pill">02</div>
-              <h3>Architecture</h3>
-              <p>Design system architecture, select models, and plan for scale.</p>
-            </article>
-            <article class="process-step">
-              <div class="icon-wrap">
-                <svg class="icon" aria-hidden="true"><use href="#icon-code"></use></svg>
-              </div>
-              <div class="pill">03</div>
-              <h3>Build</h3>
-              <p>Ship in rapid iteration cycles with demos and feedback loops.</p>
-            </article>
-            <article class="process-step">
-              <div class="icon-wrap">
-                <svg class="icon" aria-hidden="true"><use href="#icon-rocket"></use></svg>
-              </div>
-              <div class="pill">04</div>
-              <h3>Deploy</h3>
-              <p>Production rollout with monitoring, validation, and performance checks.</p>
-            </article>
-            <article class="process-step">
-              <div class="icon-wrap">
-                <svg class="icon" aria-hidden="true"><use href="#icon-settings"></use></svg>
-              </div>
-              <div class="pill">05</div>
-              <h3>Maintain</h3>
-              <p>Ongoing optimization, model updates, and long-term support.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta" id="contact">
-      <div class="container cta-content">
-        <h2>Ready to build AI that works?</h2>
-        <p>Tell us about your use case and explore how production-grade AI can transform your operations.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-xl" href="mailto:hello@signalreason.com">
-            Schedule a Consultation
-            <svg class="icon" aria-hidden="true">
-              <use href="#icon-arrow-right"></use>
-            </svg>
-          </a>
-          <a class="btn btn-outline btn-xl" href="mailto:hello@signalreason.com">Get a Technical Assessment</a>
-        </div>
-      </div>
+    <section class="cta">
+      <h2>Ready to remove operational drag?</h2>
+      <p class="note">Book a consultation to map the fastest path to measurable fixes.</p>
+      <a href="mailto:hello@signalreason.com">Book a consultation</a>
     </section>
   </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <div class="brand">
-        <span class="brand-mark">SR</span>
-        <span>Signal &amp; Reason</span>
-      </div>
-      <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="mailto:hello@signalreason.com">Contact</a>
-      </div>
-      <div>(c) 2025 Signal &amp; Reason, LLC. All rights reserved.</div>
-    </div>
-  </footer>
-
-  <script>
-    const toggleButton = document.querySelector("[data-menu-toggle]");
-    const mobileMenu = document.querySelector("#mobile-menu");
-
-    if (toggleButton && mobileMenu) {
-      const closeMenu = () => {
-        document.body.classList.remove("menu-open");
-        toggleButton.setAttribute("aria-expanded", "false");
-        mobileMenu.hidden = true;
-      };
-
-      toggleButton.addEventListener("click", () => {
-        const isOpen = document.body.classList.toggle("menu-open");
-        toggleButton.setAttribute("aria-expanded", String(isOpen));
-        mobileMenu.hidden = !isOpen;
-      });
-
-      mobileMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", closeMenu);
-      });
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closeMenu();
-        }
-      });
-    }
-  </script>
 </body>
 </html>
