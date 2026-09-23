@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.com/conventional-commit.schema.json",
+  "title": "High-quality Conventional Commit (parsed form)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "description"],
+  "properties": {
+    "type": {
+      "description": "Conventional Commit type. Edit the enum to match your org if needed.",
+      "type": "string",
+      "enum": ["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert"]
+    },
+    "scope": {
+      "description": "Optional scope without parentheses.",
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "pattern": "^[a-z0-9][a-z0-9._/-]*$"
+        }
+      ]
+    },
+    "breaking": {
+      "description": "True if the change is breaking (header bang or BREAKING CHANGE footer).",
+      "type": "boolean",
+      "default": false
+    },
+    "description": {
+      "description": "Header description (after ': '). Enforces no trailing period and a reasonable max length.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 72,
+      "pattern": "^(?!\\s)(?!.*\\s$)(?!.*\\.$)[a-z0-9][^\\r\\n]*$"
+    },
+    "body": {
+      "description": "Optional body. Enforces no tabs and <=72 chars per line.",
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?![\\s\\S]*\\t)(?:[^\\r\\n]{0,72}(?:\\r?\\n|$))*$"
+        }
+      ]
+    },
+    "footers": {
+      "description": "Optional footers (trailers). Keep issue references, sign-offs, and breaking notes here.",
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "array",
+          "maxItems": 50,
+          "items": { "$ref": "#/$defs/Footer" }
+        }
+      ]
+    },
+    "breakingDescription": {
+      "description": "If breaking=true, you can provide a description here instead of a BREAKING CHANGE footer.",
+      "anyOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/FooterValue" }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "breaking": { "const": true } },
+        "required": ["breaking"]
+      },
+      "then": {
+        "anyOf": [
+          { "required": ["breakingDescription"] },
+          {
+            "required": ["footers"],
+            "properties": {
+              "footers": {
+                "contains": {
+                  "type": "object",
+                  "required": ["token"],
+                  "properties": {
+                    "token": { "enum": ["BREAKING CHANGE", "BREAKING-CHANGE"] }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": ["footers"],
+        "properties": {
+          "footers": {
+            "contains": {
+              "type": "object",
+              "required": ["token"],
+              "properties": {
+                "token": { "enum": ["BREAKING CHANGE", "BREAKING-CHANGE"] }
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": { "breaking": { "const": true } },
+        "required": ["breaking"]
+      }
+    }
+  ],
+  "$defs": {
+    "NoTabs": {
+      "type": "string",
+      "pattern": "^(?![\\s\\S]*\\t)[\\s\\S]*$"
+    },
+    "PersonWithEmail": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 200,
+      "pattern": "^.+ <[^<>\\s]+@[^<>\\s]+>$"
+    },
+    "FooterToken": {
+      "description": "Trailer token. Supports dash tokens (Signed-off-by) and BREAKING CHANGE.",
+      "type": "string",
+      "anyOf": [
+        { "enum": ["BREAKING CHANGE", "BREAKING-CHANGE"] },
+        { "pattern": "^[A-Za-z][A-Za-z0-9-]*$" }
+      ]
+    },
+    "FooterValue": {
+      "allOf": [
+        { "$ref": "#/$defs/NoTabs" },
+        { "type": "string", "minLength": 1, "maxLength": 500 },
+        { "pattern": "^(?!\\s)[\\s\\S]*\\S$" }
+      ]
+    },
+    "Footer_Generic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["token", "value"],
+      "properties": {
+        "token": { "$ref": "#/$defs/FooterToken" },
+        "value": { "$ref": "#/$defs/FooterValue" }
+      }
+    },
+    "Footer_SignedOffBy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["token", "value"],
+      "properties": {
+        "token": { "type": "string", "const": "Signed-off-by" },
+        "value": { "$ref": "#/$defs/PersonWithEmail" }
+      }
+    },
+    "Footer_CoAuthoredBy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["token", "value"],
+      "properties": {
+        "token": { "type": "string", "const": "Co-authored-by" },
+        "value": { "$ref": "#/$defs/PersonWithEmail" }
+      }
+    },
+    "Footer_IssueRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["token", "value"],
+      "properties": {
+        "token": {
+          "type": "string",
+          "enum": ["Refs", "Ref", "Fixes", "Closes", "Resolves", "Relates-to"]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200,
+          "pattern": "^(#\\d+(?:,\\s*#\\d+)*)|([A-Z][A-Z0-9]+-\\d+(?:,\\s*[A-Z][A-Z0-9]+-\\d+)*)|(https?://\\S+)$"
+        }
+      }
+    },
+    "Footer": {
+      "oneOf": [
+        { "$ref": "#/$defs/Footer_SignedOffBy" },
+        { "$ref": "#/$defs/Footer_CoAuthoredBy" },
+        { "$ref": "#/$defs/Footer_IssueRef" },
+        { "$ref": "#/$defs/Footer_Generic" }
+      ]
+    }
+  }
+}
