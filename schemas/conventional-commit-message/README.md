@@ -39,8 +39,7 @@ This schema validates a structured JSON object that represents a commit message,
 
 ## Files
 
-- `conventional-commit.schema.json`  
-  The schema.
+- `conventional-commit-message.schema.json` - The schema.
 
 ## Data model
 
@@ -59,4 +58,5 @@ The validated JSON object looks like this:
   ],
   "breakingDescription": null
 }
+```
 
